@@ -1,4 +1,4 @@
-'use strict'
+
 
 const express = require('express');
 const router = express.Router();
@@ -52,11 +52,13 @@ router.post('/users/signup', async (req, res) => {
             res.redirect('/users/signin');
         } catch{
             console.log(error => console.log(err));
-        }
-     
-    }
-   
+        }     
+    }   
 });
 
+router.get('/users/logout', (req, res) => {
+    req.logout();
+    res.redirect('/');
+});
 
 module.exports = router; 
